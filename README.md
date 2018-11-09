@@ -1,5 +1,7 @@
 # Flat To Tree
 
+Convert flat array into tree structure. O(n) time complexity.
+
 ## Installation
 
 ```
@@ -15,7 +17,7 @@ const flat = [
   {
     id: 2,
     parentId: 1,
-    title: "node-1-2"
+    title: "node-1-2" // any properties
   },
   {
     id: 3,

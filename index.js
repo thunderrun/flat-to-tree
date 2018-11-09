@@ -2,7 +2,8 @@ const flatToTree = (flatArray, options) => {
   const tree = []; // the resulting tree to return
   const dictionary = {}; // a hash table mapping to the specific array objects with their ids as key
   flatArray.forEach(node => {
-    dictionary[node.id] = { // set up current node data in dictionary
+    // set up current node data in dictionary
+    dictionary[node.id] = {
       children: [], // init a children property
       ...node, // add other propertys
       ...dictionary[node.id] // children will be replaced if this node already has children property which was set below
