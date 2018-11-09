@@ -59,4 +59,4 @@ tree = [
 
 ## Browser compatibility
 
-- Chrome 60
+- Chrome 60+
