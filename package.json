@@ -1,6 +1,6 @@
 {
   "name": "flat-to-tree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convert flat array into tree structure",
   "main": "index.js",
   "scripts": {
