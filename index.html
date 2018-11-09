@@ -8,23 +8,27 @@
       import flatToTree from "./index.js";
       const flat = [
         {
-          id: 2,
-          parentId: 1,
+          key: 2,
+          pId: 1,
           title: "node-1-2"
         },
         {
-          id: 3,
-          parentId: 2,
-          title: "node-1-2-3"
-        },
-        {
-          id: 1,
-          parentId: null,
+          key: 1,
+          pId: null,
           title: "root"
         },
+        {
+          key: 3,
+          pId: 2,
+          title: "node-1-2-3"
+        }
       ];
 
-      const tree = flatToTree(flat);
+      const tree = flatToTree(flat, {
+        id: "key",
+        parentId: "pId",
+        children: "c"
+      });
 
       console.log(tree);
     </script>

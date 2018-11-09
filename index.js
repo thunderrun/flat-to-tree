@@ -1,20 +1,27 @@
-const flatToTree = (flatArray, options) => {
+const flatToTree = (
+  flatArray,
+  options = { id: "id", parentId: "parentId", children: "children" }
+) => {
   const tree = []; // the resulting tree to return
   const dictionary = {}; // a hash table mapping to the specific array objects with their ids as key
   flatArray.forEach(node => {
     // set up current node data in dictionary
-    dictionary[node.id] = {
-      children: [], // init a children property
+    dictionary[node[options.id]] = {
+      [options.children]: [], // init a children property
       ...node, // add other propertys
-      ...dictionary[node.id] // children will be replaced if this node already has children property which was set below
+      ...dictionary[node[options.id]] // children will be replaced if this node already has children property which was set below
     };
-    if (node.parentId) {
+    if (node[options.parentId]) {
       // is parent node
-      dictionary[node.parentId] = dictionary[node.parentId] || { children: [] }; // if it's not exist in dictionary, init an object with children property
-      dictionary[node.parentId].children.push(dictionary[node.id]); // add reference to current node object in parent node object
+      dictionary[node[options.parentId]] = dictionary[
+        node[options.parentId]
+      ] || { [options.children]: [] }; // if it's not exist in dictionary, init an object with children property
+      dictionary[node[options.parentId]][options.children].push(
+        dictionary[node[options.id]]
+      ); // add reference to current node object in parent node object
     } else {
       // is root node
-      tree.push(dictionary[node.id]);
+      tree.push(dictionary[node[options.id]]);
     }
   });
   return tree;
