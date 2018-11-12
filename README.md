@@ -126,6 +126,6 @@ tree2 = [
 
 ## Browser compatibility
 
-- Chrome 60+
+- Chrome 61+
 
 Use Babel for better browser support
