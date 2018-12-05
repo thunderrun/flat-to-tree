@@ -1,22 +1,22 @@
 {
-  "name": "open-with-a-tag",
-  "version": "1.0.0",
-  "description": "Open link by creating a tag and simulate click it",
+  "name": "flat-to-tree",
+  "version": "0.1.1",
+  "description": "Convert flat array into tree structure",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thunderrun/open-with-a-tag.git"
+    "url": "git+https://github.com/thunderrun/flat-to-tree.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thunderrun/open-with-a-tag/issues"
+    "url": "https://github.com/thunderrun/flat-to-tree/issues"
   },
-  "homepage": "https://github.com/thunderrun/open-with-a-tag#readme",
+  "homepage": "https://github.com/thunderrun/flat-to-tree#readme",
   "keywords": [
-    "open with a tag"
+    "flat to tree"
   ]
 }

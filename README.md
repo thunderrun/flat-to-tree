@@ -1,27 +1,131 @@
-# Open Link With \<a> tag
+# Flat To Tree
 
-- Open link by creating \<a> tag and simulate click it
-- Support [\<a> tag attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes)
+Convert flat array into tree structure. O(n) time complexity.
 
-## Install
+## Installation
 
 ```
-npm i open-link-with-a-tag
+npm i flat-to-tree
 ```
 
-## Usage
+## Example
 
 ```javascript
-import open from "open-with-a-tag";
+import flatToTree from "flat-to-tree";
 
-open('https://www.google.com/', {
-  rel: 'noreferrer noopener',
-  target: '_blank'
-})
+const flat = [
+  {
+    id: 2,
+    parentId: 1,
+    title: "node-1-2" // any properties
+  },
+  {
+    id: 3,
+    parentId: 2,
+    title: "node-1-2-3"
+  },
+  {
+    id: 1,
+    parentId: null,
+    title: "root"
+  }
+];
+
+const tree = flatToTree(flat);
+
+/*
+tree = [
+  {
+    id: 1,
+    parentId: null,
+    title: "root",
+    children: [
+      {
+        id: 2,
+        parentId: 1,
+        title: "node-1-2",
+        children: [
+          {
+            id: 3,
+            parentId: 2,
+            title: "node-1-2-3",
+            children: []
+          }
+        ]
+      }
+    ]
+  }
+];
+*/
+
+const flat2 = [
+  {
+    key: 2,
+    pId: 1,
+    name: "node-1-2" // any properties
+  },
+  {
+    key: 3,
+    pId: 2,
+    name: "node-1-2-3"
+  },
+  {
+    key: 1,
+    pId: null,
+    name: "root"
+  }
+];
+
+const tree2 = flatToTree(flat2, {
+  id: "key",
+  parentId: "pId",
+  children: "sub"
+});
+
+/*
+tree2 = [
+  {
+    key: 1,
+    pId: null,
+    title: "root",
+    sub: [
+      {
+        key: 2,
+        pId: 1,
+        title: "node-1-2",
+        sub: [
+          {
+            key: 3,
+            pId: 2,
+            title: "node-1-2-3",
+            sub: []
+          }
+        ]
+      }
+    ]
+  }
+];
+*/
 ```
+
+## API
+
+### `flatToTree(data, [options])`
+
+#### Parameters
+
+- `data: Array`: Flat array to convert
+- `options: Object`: Config options:
+  - `id: string` : Property name of unique node identifier. Default: 'id'.
+  - `parentId: String` : Property name of parent node id. Default: 'parentId'.
+  - `children: String` : Property name of an array to store child nodes. Default: 'children'.
+
+#### Return
+
+- `Array`: Converted tree structure
 
 ## Browser compatibility
 
-- Chrome 60+
+- Chrome 61+
 
 Use Babel for better browser support

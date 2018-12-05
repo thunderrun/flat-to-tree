@@ -5,8 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <script type="module">
-      import open2 from "./index.js";
-      open2('https://www.google.com');
+      import flatToTree from "./index.js";
+      const flat = [
+        {
+          key: 2,
+          pId: 1,
+          title: "node-1-2"
+        },
+        {
+          key: 1,
+          pId: null,
+          title: "root"
+        },
+        {
+          key: 3,
+          pId: 2,
+          title: "node-1-2-3"
+        }
+      ];
+
+      const tree = flatToTree(flat, {
+        id: "key",
+        parentId: "pId",
+        children: "c"
+      });
+
+      console.log(tree);
     </script>
   </head>
   <body></body>
