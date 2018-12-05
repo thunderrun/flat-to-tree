@@ -9,25 +9,25 @@
       const flat = [
         {
           key: 2,
-          pId: 1,
+          parentId: 1,
           title: "node-1-2"
         },
         {
           key: 1,
-          pId: null,
+          parentId: null,
           title: "root"
         },
         {
           key: 3,
-          pId: 2,
+          parentId: 2,
           title: "node-1-2-3"
         }
       ];
 
       const tree = flatToTree(flat, {
         id: "key",
-        parentId: "pId",
-        children: "c"
+        // parentId: "pId",
+        // children: "c"
       });
 
       console.log(tree);

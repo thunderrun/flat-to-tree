@@ -1,7 +1,10 @@
-const flatToTree = (
-  flatArray,
-  options = { id: "id", parentId: "parentId", children: "children" }
-) => {
+const flatToTree = (flatArray, options) => {
+  options = {
+    id: "id",
+    parentId: "parentId",
+    children: "children",
+    ...options
+  };
   const tree = []; // the resulting tree to return
   const dictionary = {}; // a hash table mapping to the specific array objects with their ids as key
   flatArray.forEach(node => {
