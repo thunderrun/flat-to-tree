@@ -34,7 +34,8 @@ const flat = [
 const tree = flatToTree(flat);
 
 /*
-tree = [
+tree: 
+[
   {
     id: 1,
     parentId: null,
@@ -83,7 +84,8 @@ const tree2 = flatToTree(flat2, {
 });
 
 /*
-tree2 = [
+tree2: 
+[
   {
     key: 1,
     pId: null,
@@ -106,6 +108,52 @@ tree2 = [
   }
 ];
 */
+
+const flat3 = [
+  {
+    id: 2,
+    parentId: 1,
+    title: "node-1-2"
+  },
+  {
+    id: 1,
+    parentId: 10, // not exist, will be considered as root nodes
+    title: "root-1"
+  },
+  {
+    id: 4,
+    parentId: 10, // not exist, will be considered as root nodes
+    title: "root-4"
+  },
+  {
+    id: 3,
+    parentId: 2,
+    title: "node-1-2-3"
+  }
+];
+
+const tree3 = flatToTree(flat3);
+
+/*
+tree3: 
+[
+  {
+    children: [
+      {
+        children: [{ children: [], id: 3, parentId: 2, title: "node-1-2-3" }],
+        id: 2,
+        parentId: 1,
+        title: "node-1-2"
+      }
+    ],
+    id: 1,
+    parentId: 10,
+    title: "root-1"
+  },
+  { children: [], id: 4, parentId: 10, title: "root-4" }
+]
+*/
+
 ```
 
 ## API
@@ -115,10 +163,10 @@ tree2 = [
 #### Parameters
 
 - `data: Array`: Flat array to convert
-- `options: Object`: Config options:
-  - `id: string` : Property name of unique node identifier. Default: 'id'.
-  - `parentId: String` : Property name of parent node id. Default: 'parentId'.
-  - `children: String` : Property name of an array to store child nodes. Default: 'children'.
+- `options?: Object`: Config options:
+  - `id?: String` : Property name of unique node identifier. Default: 'id'.
+  - `parentId?: String` : Property name of parent node id. Default: 'parentId'.
+  - `children?: String` : Property name of an array to store child nodes. Default: 'children'.
 
 #### Return
 

@@ -14,11 +14,34 @@
         },
         {
           key: 1,
-          parentId: null,
-          title: "root"
+          parentId: 10,
+          title: "root-1"
+        },
+        {
+          key: 4,
+          parentId: 10,
+          title: "root-4"
         },
         {
           key: 3,
+          parentId: 2,
+          title: "node-1-2-3"
+        }
+      ];
+
+      const flat2 = [
+        {
+          id: 2,
+          parentId: 1,
+          title: "node-1-2"
+        },
+        {
+          id: 1,
+          parentId: null,
+          title: "root-1"
+        },
+        {
+          id: 3,
           parentId: 2,
           title: "node-1-2-3"
         }
@@ -30,7 +53,10 @@
         // children: "c"
       });
 
+      const tree2 = flatToTree(flat2);
+
       console.log(tree);
+      console.log(tree2);
     </script>
   </head>
   <body></body>
